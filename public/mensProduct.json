@@ -1,0 +1,44 @@
+[
+    {
+        "name":"Winter Collection",
+        "img":"https://i.ibb.co/M18wcMw/download.jpg",
+        "price":499,
+        "available":10000,
+        "minimum":250
+    },
+    {
+        "name":"Winter Huri",
+        "img":"https://i.ibb.co/VtsSGmj/download-1.jpg",
+        "price": 850,
+        "available":10000,
+        "minimum":250
+    },
+    {
+        "name":"Custom Black T-Shirt",
+        "img":"https://i.ibb.co/mc7DRD8/images-1.jpg",
+        "price": 350,
+        "available":10000,
+        "minimum":250
+    },
+    {
+        "name":"White Color T-Shirt",
+        "img":"https://i.ibb.co/4t79SGf/images-2.jpg",
+        "price": 290,
+        "available":10000,
+        "minimum":250
+    },
+    {
+        "name":"Ass Color T-Shirt T-Shirt",
+        "img":"https://i.ibb.co/ZhW33Y5/images-3.jpg",
+        "price": 350,
+        "available":10000,
+        "minimum":250
+    },
+    {
+        "name":"Blue T-Shirt",
+        "img":"https://i.ibb.co/qJfdV3B/images-4.jpg",
+        "price": 799,
+        "available":10000,
+        "minimum":250
+    }
+]
