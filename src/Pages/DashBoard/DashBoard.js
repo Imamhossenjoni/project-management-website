@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import useAdmin from '../../hooks/useAdmin'
 
 const DashBoard = () => {
-    const [user]=useAuthState(auth);
+    const [user] = useAuthState(auth);
     // const [admin]=useAdmin(user)
     return (
         <div class="drawer drawer-mobile">
@@ -14,8 +14,6 @@ const DashBoard = () => {
                 <h2 className='text-purple-500 py-5 text-3xl text-center font-bold'>Welcome to Your DashBoard</h2>
                 <Outlet></Outlet>
                 {/* <!-- Page content here --> */}
-                
-
             </div>
             <div class="drawer-side">
                 <label for="sidebar" class="drawer-overlay"></label>
@@ -25,7 +23,7 @@ const DashBoard = () => {
                     <li><Link to='/dashboard/review'>MyReview</Link></li>
                     <li><Link to='/dashboard/addItem'>AddItem</Link></li>
                     <li><Link to='/dashboard/manage'>Manage Items</Link></li>
-                    { <li><Link to='/dashboard/users'>All Users</Link></li>}
+                    {<li><Link to='/dashboard/users'>All Users</Link></li>}
                 </ul>
 
             </div>

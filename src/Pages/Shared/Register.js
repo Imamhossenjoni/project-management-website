@@ -26,13 +26,13 @@ const Register = () => {
     //     return <Loading></Loading>
     //   }
     console.log('token', token);
-   
-        // if (user?.user?.accessToken) {
-        //     navigate('/shop');
-        // }
-        if (token) {
-            navigate('/shop');
-        }
+
+    // if (user?.user?.accessToken) {
+    //     navigate('/shop');
+    // }
+    if (token) {
+        navigate('/shop');
+    }
     const handleRegister = event => {
         event.preventDefault();
         const name = event.target.name.value;
@@ -68,7 +68,6 @@ const Register = () => {
                     <span className='text-left mt-4 text-info text-xl' >Already signIn here ? <Link to='/login'>Go to Login</Link></span>
                     <div class="divider">OR</div>
                     <button onClick={() => signInWithGoogle()} className='btn btn-outline text-xl'>Continue to Google</button>
-
                 </div>
             </div>
         </div>

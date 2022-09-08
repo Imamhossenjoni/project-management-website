@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import useProducts from '../../hooks/useProducts';
 
 const ManageItems = () => {
-    const {id}=useParams();
+    const { id } = useParams();
     const [products, setProducts] = useProducts();
-    const handleDelete = id => {
+    const handleDelete = id=> {
+        console.log('ki o')
         const proceed = window.confirm('Are you sure?');
         if (proceed) {
             console.log('clicked', id);
@@ -33,7 +34,7 @@ const ManageItems = () => {
                         <p>Price (per unit):{part?.price}</p>
                         <p>Available Quantity:{part?.available}</p>
                         <p>Minimum Order:{part?.minimum}</p>
-                        <h5><button onClick={() => handleDelete(part?._id)} className='btn btn-info btn-sm my-3 '>Delete</button></h5>
+                        <h5><button onClick={()=>handleDelete(part?._id)} className='btn btn-info btn-sm my-3 '>Delete</button></h5>
                     </div>)
                 }
             </div>

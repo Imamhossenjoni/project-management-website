@@ -5,40 +5,42 @@ import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyOrder = () => {
-    const {id}=useParams();
-    const [test,setTest]=useState([]);
+    const { id } = useParams();
+    const [test, setTest] = useState([]);
     const [user] = useAuthState(auth);
     const [orders, setOrders] = useState([]);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user?.email}`,{
-                method:'GET',
-                headers:{
-                    'authorization':`Bearer ${localStorage.getItem('accessToken')}`
+            fetch(`http://localhost:5000/order?email=${user?.email}`, {
+                method: 'GET',
+                headers: {
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 }
             })
                 .then(res => res.json())
                 .then(data => setOrders(data))
         }
-    }, [user,test]);
-    const handleDelete=id=>{
-        const proceed=window.confirm('Are You Sure?');
-        if(proceed){
-            fetch(`http://localhost:5000/order/${id}`,{
-                method:'DELETE',
+    }, [user, test]);
+    const handleDelete = id => {
+        const proceed = window.confirm('Are You Sure?');
+        if (proceed) {
+            fetch(`http://localhost:5000/order/${id}`, {
+                method: 'DELETE',
             })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                toast('Your item deleted');
-                alert('Deleted Successfully');
-                setTest(data);
-            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    toast('Your item deleted');
+                    alert('Deleted Successfully');
+                    setTest(data);
+                })
+                // https://i.ibb.co/kSPx4yH/javed.jpg
+                
         }
     }
     return (
         <div>
-            <h2>{orders.length}</h2>
+            <h2 className='text-red-500 font-bold text-2xl py-3'>{orders.length>0 ? `Your Total Order: ${orders.length}`:'Sorry, You have no order item yet'}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>
@@ -62,7 +64,7 @@ const MyOrder = () => {
                             <td>{order?.product}</td>
                             <td>{order?.order}</td>
                             <td>{(order.total && !order?.paid) && <Link to={`/dashboard/payment/${order?._id}`}><button className='btn btn-xs'>Pay Now</button></Link>}
-                            {(order?.total && order.paid)&& <span className='text-success'>Paid</span>}
+                                {(order?.total && order.paid) && <span className='text-success'>Paid</span>}
                             </td>
                             <td>{order.mobile}</td>
                             <td>{order.address}</td>
